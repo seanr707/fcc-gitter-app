@@ -47,23 +47,25 @@ const Input = ({ dispatch, token, inputField, inputNode }) => {
 
   return (
     <div id="input">
-      <form onSubmit={submit(thunkBind.sendMessage, actionBind.updateInput, inputField)}>
-        <div className="col-10">
-          <textarea
-            id="submit-field"
-            type="text"
-            className="submit-input"
-            ref={keyUp(thunkBind.sendMessage, actionBind.updateInput)}
-            value={inputField}
-            onChange={updateInput}
-            autoFocus
-            required
-          />
-        </div>
-        <div className="col-2" style={{ margin: '20px 0' }}>
-          <button type="submit" className="btn btn-remove">Send</button>
-        </div>
-      </form>
+      <div className="input-wrapper">
+        <form onSubmit={submit(thunkBind.sendMessage, actionBind.updateInput, inputField)}>
+          <div className="col-10">
+            <textarea
+              id="submit-field"
+              type="text"
+              className="submit-input"
+              ref={keyUp(thunkBind.sendMessage, actionBind.updateInput)}
+              value={inputField}
+              onChange={updateInput}
+              autoFocus
+              required
+            />
+          </div>
+          <div className="col-2" style={{ margin: '20px 0' }}>
+            <button type="submit" className="btn btn-remove">Send</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

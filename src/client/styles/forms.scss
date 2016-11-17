@@ -49,6 +49,12 @@ textarea {
   width: 75%;
 }
 
+// Wrapper around form to minimize stretching distortion
+.input-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
 #input {
   position: fixed;
   bottom: 0px;

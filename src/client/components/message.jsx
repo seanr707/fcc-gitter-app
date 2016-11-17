@@ -60,7 +60,6 @@ const Message = ({ message, appendInput, user, notified, dispatch }) => {
 
   const click = () => {
     appendInput(`@${message.fromUser.username} `);
-    document.getElementById('submit-field').click();
   };
 
   let background = getBackground(user, message.fromUser, message.mentions, message);

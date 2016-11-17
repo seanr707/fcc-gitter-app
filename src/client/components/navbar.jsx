@@ -7,8 +7,11 @@ const Navbar = ({ dispatch, currentRoom, currentRoute }) => {
     ? 'FreeCodeCamp Gitter Client'
     : currentRoom.title;
 
+  const style = currentRoute !== '/'
+    ? { background: '#4f4f54' } : null;
+
   return (
-    <nav className="navbar navbar-default">
+    <nav className="navbar navbar-default" style={style}>
       <div className="nav-item left">
         <span>
           <Link to="/">{ titleText }</Link>
