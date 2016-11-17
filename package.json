@@ -4,15 +4,15 @@
   "description": "Display FreeCodeCamp Gitter channels",
   "main": "index.js",
   "scripts": {
-    "start": "npm install && npm run build && node dist/server",
-    "start-dev": "babel-node dist/server",
+    "start": "node dist/server",
+    "start-dev": "./node_modules/.bin/babel-node dist/server",
     "clean": "rm -r dist/server && rm dist/client/css/main.css && dist/client/js/bundle.js",
-    "build-front": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
-    "build-front-dev": "webpack --progress --colors",
-    "build-server": "babel src/server -d dist/server",
+    "build-front": "./node_modules/.bin/webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
+    "build-front-dev": "./node_modules/.bin/webpack --progress --colors",
+    "build-server": "./node_modules/.bin/babel src/server -d dist/server",
     "build": "npm run build-front && npm run build-server",
     "build-dev": "npm run build-front-dev && npm run build-server",
-    "deploy": "git checkout heroku && git merge --no-commit --no-ff development && npm run build && git commit -a -m \"New build for Heroku\" && git push heroku heroku:master && git checkout development",
+    "deploy": "git checkout heroku && git merge --no-commit --no-ff dev && npm run build && git commit -a -m \"New build for Heroku\" && git push heroku heroku:master && git checkout dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
