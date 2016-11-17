@@ -4,7 +4,7 @@
   "description": "Display FreeCodeCamp Gitter channels",
   "main": "index.js",
   "scripts": {
-    "start": "npm install && npm build && node dist/server",
+    "start": "npm install && npm run build && node dist/server",
     "start-dev": "babel-node dist/server",
     "clean": "rm -r dist/server && rm dist/client/css/main.css && dist/client/js/bundle.js",
     "build-front": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
