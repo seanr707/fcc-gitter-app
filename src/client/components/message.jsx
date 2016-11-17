@@ -1,8 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import MarkdownIt from 'markdown-it';
+import Emoji from 'markdown-it-emoji';
 
 import { actions } from '../actions';
+
+const md = MarkdownIt().use(Emoji);
+
+const markup = text => ({ __html: md.render(text) });
 
 const getBackground = (user, author, mentions, message) => {
   const mention = mentions.find(x => x.userId === user.id);
@@ -67,7 +73,7 @@ const Message = ({ message, appendInput, user, notified, dispatch }) => {
 
   return (
     <div className="message-container">
-      <div className="message markdown" style={background} dangerouslySetInnerHTML={{ __html: message.html }} />
+      <div className="message markdown" style={background} dangerouslySetInnerHTML={markup(message.text)} />
       <div className="message-info-container">
         <div className="message-timestamp col-6">{ date }</div>
         <div
