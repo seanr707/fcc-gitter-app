@@ -1,0 +1,61 @@
+// Increase height for text areas
+textarea {
+  height: 100px;
+  resize: none;
+}
+
+.labeled-input {
+  margin: 4px auto;
+
+  label {
+    font-weight: bold;
+    margin: 15px 0px;
+    text-align: right;
+  }
+}
+
+.input-container {
+  text-align: left;
+}
+
+#input-add {
+  width: 75%;
+}
+
+.submit-input {
+  width: 100%;
+  height: 75px;
+  padding: 10px;
+  margin: 6px 0;
+  background: #e8e8e8;
+  color: #333333;
+  border: 1px solid #9f9f9f;
+  border-radius: 2px;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.4);
+  transition: background 0.2s ease;
+
+  &:focus {
+    outline: none;
+    background: #fafafa;
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.poll-submit-checkbox {
+  margin-top: 35px;
+}
+
+.option-input {
+  width: 75%;
+}
+
+#input {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  // padding: 10px;
+  background: #dddddd;
+  box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+}

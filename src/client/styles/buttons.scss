@@ -1,0 +1,95 @@
+button:focus {
+  outline: none;
+}
+
+@mixin makeBtn($background, $text) {
+  background: $background;
+  color: $text;
+  border: 1px solid darken($background, 10);
+
+  &:hover {
+    background: darken($background, 8);
+  }
+
+  &:active {
+    background: lighten($background, 5);
+  }
+}
+
+@mixin makeBtnRound($size, $background) {
+  height: $size;
+  width: $size;
+  background: $background;
+  // border: 1px solid darken($background, 10);
+  font-size: $size * 0.65;
+
+  &:hover {
+    background: darken($background, 5);
+  }
+
+  &:active {
+    background: lighten($background, 10);
+  }
+}
+
+.btn-container {
+  display: inline-block;
+}
+
+.btn {
+  width: 75px;
+  padding: 10px;
+  border-radius: 3px;
+  margin: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-default {
+  @include makeBtn(#eaeaea, #444444);
+}
+
+.btn-submit {
+  @include makeBtn(#21cd4f, #efefef);
+}
+
+.btn-remove {
+  @include makeBtn(#cf222f, #efefef);
+}
+
+.btn-login {
+  @include makeBtn(rgb(29, 161, 242), #fefefe);
+}
+
+.btn-round {
+  border-radius: 100%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  border: none;
+  color: #fdfdfd;
+  font-family: monospace;
+  margin: 5px auto;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.btn-round-add {
+  @include makeBtnRound(32px, #33cc39);
+  display: block;
+  font-weight: bold;
+}
+
+.login-btn-container {
+  display: flex;
+  margin-left: -3px;
+}
+
+.login-btn-img {
+  height: 16px;
+  // width: 20px;
+  margin-right: 4px;
+}
+
+.login-btn-text {
+  margin-left: 3px;
+}

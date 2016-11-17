@@ -1,0 +1,54 @@
+// For use on static page
+.user-polls {
+  margin: 0 auto;
+  border-collapse: collapse;
+  border: 1px solid $optionColor;
+
+  th, td {
+    padding: 5px;
+    min-width: 75px;
+  }
+
+  th {
+    background: $optionColor;
+    color: #fefefe;
+  }
+
+  tr:nth-child(even) {
+    background: lighten($optionColor, 30);
+  }
+}
+
+.user-image {
+  max-width: 100px;
+  overflow: hidden;
+  margin: 10px auto;
+
+  img {
+    width: inherit;
+  }
+}
+
+.user-link {
+  margin: 0 3px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+#top-options {
+  max-width: 400px;
+  margin: 10px auto;
+  text-align: left;
+  border: 1px solid #b0b0b0;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+
+  & .row:nth-child(odd) {
+    background: rgba(150, 150, 150, 0.1);
+  }
+
+  & .row:nth-child(even) {
+    background: rgba(0, 0, 0, 0.1);
+  }
+}

@@ -1,0 +1,8 @@
+node_modules/
+
+dist/server/
+dist/client/public/css/
+dist/client/public/js/
+
+start.sh
+npm-debug.log

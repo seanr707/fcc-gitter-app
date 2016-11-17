@@ -1,0 +1,75 @@
+.options {
+  display: inline-block;
+  text-align: center;
+  padding: 15px;
+}
+
+.option-container {
+  margin: 10px auto;
+
+  & input[type=radio] {
+    display: none;
+  }
+}
+
+.option {
+  display: block;
+  min-width: 75px;
+  padding: 10px;
+  background: $optionColor;
+  color: #fefefe;
+  border-radius: 3px;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  }
+
+  &:active {
+    background: lighten($optionColor, 10);
+  }
+
+  input[type=radio]:checked + & {
+    background: $optionSelectedColor;
+
+    &:hover {
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    }
+
+    &:active {
+      background: lighten($optionSelectedColor, 10);
+    }
+  }
+}
+
+// Make option seem like regular text for options
+.option-add-input {
+  padding: 3px;
+  border: 1px solid $optionColor;
+  border-radius: 2px;
+  background: $optionColor;
+  color: #fefefe;
+  text-align: center;
+  transition: all 0.2s ease;
+
+  &:focus {
+    outline: none;
+    border: 1px solid darken($optionSelectedColor, 10);
+    background: #fefefe;
+    color: #555555;
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.2);
+  }
+
+  // Change color of placeholder values
+  &::-webkit-input-placeholder {
+    color: #fefefe;
+    opacity: 1;
+  }
+
+  &::-moz-placeholder {
+    color: #fefefe;
+    opacity: 1;
+  }
+}

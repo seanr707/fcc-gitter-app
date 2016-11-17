@@ -1,0 +1,83 @@
+@import "constants";
+@import "responsive-grid";
+@import "loading";
+@import "messages";
+@import "markdown";
+@import "navbar";
+@import "forms";
+@import "buttons";
+
+// Google fonts
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+body {
+  background: #ededed;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+}
+
+h1, h2, h3, h4, .poll-head {
+  font-family: "Montserrat", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+pre {
+  background: #777777;
+  color: #dddddd;
+  padding: 5px;
+  text-align: left;
+  border-radius: 3px;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.flexbox {
+  display: flex;
+
+  div, span {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.left {
+  display: inline-flex;
+}
+
+.right {
+  float: right;
+  display: inline-flex;
+}
+
+.center {
+  text-align: center;
+}
+
+.clickable-clear {
+  background: none;
+  border:none;
+  color: #646464;
+  display: inline-block;
+  margin: 0 4px;
+  cursor: pointer;
+  transition: color 0.5s ease;
+
+  &:hover {
+    color: #333333;
+  }
+}
+
+#root {
+  // Padding for toolbar
+  padding-bottom: 55px;
+}
