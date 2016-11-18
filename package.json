@@ -4,21 +4,25 @@
   "description": "Display FreeCodeCamp Gitter channels",
   "main": "index.js",
   "scripts": {
-    "start": "npm install && npm build && node dist/server",
-    "start-dev": "babel-node dist/server",
+    "start": "node dist/server",
+    "start-dev": "./node_modules/.bin/babel-node dist/server",
     "clean": "rm -r dist/server && rm dist/client/css/main.css && dist/client/js/bundle.js",
-    "build-front": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
-    "build-front-dev": "webpack --progress --colors",
-    "build-server": "babel src/server -d dist/server",
+    "build-front": "./node_modules/.bin/webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
+    "build-front-dev": "./node_modules/.bin/webpack --progress --colors",
+    "build-server": "./node_modules/.bin/babel src/server -d dist/server",
     "build": "npm run build-front && npm run build-server",
     "build-dev": "npm run build-front-dev && npm run build-server",
-    "deploy": "git checkout heroku && git merge --no-commit --no-ff development && npm run build && git commit -a -m \"New build for Heroku\" && git push heroku heroku:master && git checkout development",
+    "deploy": "git checkout heroku && git merge --no-commit --no-ff dev && npm run build && git commit -a -m \"New build for Heroku\" && git push heroku heroku:master && git checkout dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "freecodecamp",
     "gitter"
   ],
+  "engines": {
+    "node": "6.3.1",
+    "npm": "3.10.7"
+  },
   "author": "seanr707",
   "license": "SEE LICENSE IN LICENSE.md",
   "dependencies": {
@@ -28,8 +32,10 @@
     "express": "^4.14.0",
     "express-session": "^1.14.1",
     "immutable": "^3.8.1",
+    "json-loader": "^0.5.4",
     "markdown-it": "^8.1.0",
     "markdown-it-emoji": "^1.3.0",
+    "markdown-it-flowdock": "^0.3.7",
     "mongoose": "^4.6.1",
     "node-gitter": "^2.0.5",
     "passport": "^0.3.2",

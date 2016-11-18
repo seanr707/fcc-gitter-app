@@ -13,7 +13,7 @@ body {
 
 // $mainColor: #007acc;
 // Orange/yellow to accent green of message background
-$mainColor: #ccb713;
+$mainColor: #ffcc13;
 
 .markdown {
   font-family: 'Segoe WPC', 'Segoe UI', SFUIText-Light, HelveticaNeue-Light, sans-serif;
@@ -23,6 +23,20 @@ $mainColor: #ccb713;
   a {
       color: $mainColor;
       text-decoration: none;
+      cursor: pointer;
+
+      &.mention, &.hashtag {
+        // bold font for mentions and hashtags
+        // font-weight: bold;
+        cursor: default;
+        // color: #ffff00;
+        color: #efefef;
+        text-decoration: underline;
+
+        &:hover {
+          color: inherit;
+        }
+      }
   }
   a:visited {
       color: $mainColor;

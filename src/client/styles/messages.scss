@@ -1,4 +1,5 @@
-$messageBackground: #33aa44;
+// $messageBackground: #33aa44; // green
+$messageBackground: #3366aa; // shade of blue
 $authorBackground: #555555;
 
 #messages {
@@ -34,10 +35,13 @@ $authorBackground: #555555;
 }
 
 .message-author-container {
-  width: 50%;
+  width: 75%;
   text-align: right;
   // Fixed overlap of author and message
   margin-top: 5px;
+
+  // For clicking to add name to input
+  cursor: pointer;
 }
 
 .message-author {

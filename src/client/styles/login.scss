@@ -1,0 +1,35 @@
+$loginTextSize: 18px;
+
+.login-gitter {
+  width: 200px;
+  background: #343434;
+  color: #efefef;
+
+  font-size: $loginTextSize;
+
+  margin: 40px auto;
+  padding: 15px 20px;
+
+  border: none;
+  border-radius: 3px;
+
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+
+  cursor: pointer;
+
+  &:hover {
+    background: #242424;
+  }
+
+  &:active {
+    background: #545454;
+  }
+}
+
+.login-gitter-icon {
+  height: $loginTextSize;
+  margin: 0 10px;
+
+  // To align with text properly
+  transform: translateY(2px);
+}

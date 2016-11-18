@@ -6,7 +6,7 @@ const keyUp = (sendMessage, updateInput) => node => {
   if (node && !node.onkeyup) {
     node.onkeyup = e => {
       // If Ctrl+Enter
-      if (e.keyCode === 13 && e.ctrlKey) {
+      if ((e.keyCode === 13 && e.ctrlKey) || (e.keyCode === 13 && !e.shiftKey)) {
         // use similar items to submit function
         sendMessage({ text: node.value });
         updateInput('');
@@ -47,23 +47,26 @@ const Input = ({ dispatch, token, inputField, inputNode }) => {
 
   return (
     <div id="input">
-      <form onSubmit={submit(thunkBind.sendMessage, actionBind.updateInput, inputField)}>
-        <div className="col-10">
-          <textarea
-            id="submit-field"
-            type="text"
-            className="submit-input"
-            ref={keyUp(thunkBind.sendMessage, actionBind.updateInput)}
-            value={inputField}
-            onChange={updateInput}
-            autoFocus
-            required
-          />
-        </div>
-        <div className="col-2" style={{ margin: '20px 0' }}>
-          <button type="submit" className="btn btn-remove">Send</button>
-        </div>
-      </form>
+      <div className="input-wrapper">
+        <form style={{ display: 'flex' }} onSubmit={submit(thunkBind.sendMessage, actionBind.updateInput, inputField)}>
+          <div style={{ padding: '5px', margin: '0 0 0 auto', width: '75%' }}>
+            <textarea
+              id="submit-field"
+              type="text"
+              className="submit-input"
+              title="Send messages using the Gitter API"
+              ref={keyUp(thunkBind.sendMessage, actionBind.updateInput)}
+              value={inputField}
+              onChange={updateInput}
+              autoFocus
+              required
+            />
+          </div>
+          <div style={{ padding: '5px', margin: '20px auto 20px 0' }}>
+            <button type="submit" className="btn btn-remove">Send</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
