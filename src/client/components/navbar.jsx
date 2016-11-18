@@ -9,13 +9,15 @@ const Navbar = ({ dispatch, currentRoom, currentRoute, sideVisible }) => {
     ? 'FreeCodeCamp Gitter Client'
     : currentRoom.title;
 
+  /* May experiment with multiple colors later
   const navStyle = currentRoute !== '/'
     ? { background: '#4f4f84' } : null;
+  */
 
   const menuStyle = sideVisible ? { transform: 'rotate(90deg)' } : null;
 
   return (
-    <nav className="navbar navbar-default" style={navStyle}>
+    <nav className="navbar navbar-default">
       <div style={menuStyle} className="nav-item sidebar-toggle" onClick={() => dispatch(actions.toggleSide())}>
         ☰
       </div>

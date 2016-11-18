@@ -39,6 +39,9 @@ $authorBackground: #555555;
   text-align: right;
   // Fixed overlap of author and message
   margin-top: 5px;
+
+  // For clicking to add name to input
+  cursor: pointer;
 }
 
 .message-author {
