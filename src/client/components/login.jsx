@@ -20,8 +20,9 @@ class Login extends React.Component {
           !this.props.token
             ? <div className="center">
               <a href="/auth/gitter">
-              {/* Temporary fix until better button is made */}
-                <button className="btn btn-submit" style={{ width: '200px', margin: '40px auto' }}>Login to Gitter</button>
+                <button className="login-gitter">
+                  <img className="login-gitter-icon" src="/public/img/gitter-logo-white.svg" alt="gitter-logo" />Login to Gitter
+                </button>
               </a>
             </div>
             : <div>
