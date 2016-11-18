@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import { bindActionCreators } from 'redux';
 
 import { thunkActions } from '../actions';
@@ -25,9 +26,9 @@ class Login extends React.Component {
                   ROOMS.map((room, i) => {
                     return (
                       <li key={i}>
-                        <a href={`/page/room/${room.id}`}>
+                        <Link href={`/page/room/${room.id}`}>
                           { room.title }
-                        </a>
+                        </Link>
                       </li>
                     );
                   })
