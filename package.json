@@ -35,6 +35,7 @@
     "json-loader": "^0.5.4",
     "markdown-it": "^8.1.0",
     "markdown-it-emoji": "^1.3.0",
+    "markdown-it-flowdock": "^0.3.7",
     "mongoose": "^4.6.1",
     "node-gitter": "^2.0.5",
     "passport": "^0.3.2",

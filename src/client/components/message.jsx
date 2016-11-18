@@ -3,10 +3,13 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import MarkdownIt from 'markdown-it';
 import Emoji from 'markdown-it-emoji';
+import Flowdock from 'markdown-it-flowdock';
 
 import { actions } from '../actions';
 
-const md = MarkdownIt().use(Emoji);
+const md = MarkdownIt()
+  .use(Emoji)
+  .use(Flowdock);
 
 const markup = text => ({ __html: md.render(text) });
 
@@ -15,6 +18,8 @@ const getBackground = (user, author, mentions, message) => {
 
   if (mention) {
     return { background: '#aa3521' };
+  } else if (author.username.toLowerCase() === 'camperbot') {
+    return { background: '#217735' };
   } else if (user.id === author.id) {
     return { background: '#dfdfdf', color: '#505050' };
   }
