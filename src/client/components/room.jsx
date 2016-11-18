@@ -17,7 +17,10 @@ class Room extends React.Component {
   }
 
   componentDidMount() {
-    this.actionBind.updateRoom(ROOMS.find(room => room.id === this.props.params.roomId));
+    if (!this.props.messages) {
+      this.actionBind.updateRoom(ROOMS.find(room => room.id === this.props.params.roomId));
+    }
+
     this.updateLoop = setInterval(() => {
       if (this.props.token) {
         this.thunkBind.fetchAllMessages();

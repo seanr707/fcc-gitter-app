@@ -2,10 +2,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
-import { actions } from '../actions';
+import { actions, thunkActions } from '../actions';
 import ROOMS from '../rooms';
 
 const Sidebar = ({ currentRoom, sideVisible, dispatch }) => {
+  const toggleSideAndUpdate = room => {
+    dispatch(actions.toggleSide());
+    dispatch(thunkActions.switchRoom(room));
+  };
+
+  /*
+  const toggleAndSwitch = () => {
+    dispatch(actions.toggleSide())
+  }
+  */
   return (
     <div>
       <div className={sideVisible ? 'sidebar expanded' : 'sidebar'}>
@@ -16,7 +26,11 @@ const Sidebar = ({ currentRoom, sideVisible, dispatch }) => {
                 ? 'sidebar-item selected'
                 : 'sidebar-item';
 
-              return <Link key={i} to={`/page/room/${room.id}`}><div className={classes} key={i}>{ room.title }</div></Link>;
+              return (
+                <Link to={`/page/room/${room.id}`} key={i} onClick={() => toggleSideAndUpdate(room)}>
+                  <div className={classes}>{ room.title }</div>
+                </Link>
+              );
             })
           }
         </div>
@@ -36,4 +50,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Sidebar)
+export default connect(mapStateToProps)(Sidebar);
