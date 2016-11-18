@@ -74,7 +74,7 @@ const Message = ({ message, appendInput, user, notified, dispatch }) => {
     <div className="message-container">
       <div className="message markdown" style={background} dangerouslySetInnerHTML={markup(message.text)} />
       <div className="message-info-container">
-        <div className="message-timestamp col-6">{ date }</div>
+        <div className="message-timestamp col-3">{ date }</div>
         <div
           className="message-author-container"
           onClick={click}

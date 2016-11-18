@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 
 import { actions } from '../actions';
 
-const Navbar = ({ dispatch, currentRoom, currentRoute, sideVisible }) => {
+const Navbar = ({ dispatch, currentRoom, currentRoute, sideVisible, user }) => {
   const titleText = currentRoute === '/' || !currentRoom
     ? 'FreeCodeCamp Gitter Client'
     : currentRoom.title;
@@ -26,6 +26,18 @@ const Navbar = ({ dispatch, currentRoom, currentRoute, sideVisible }) => {
           <Link to="/">{ titleText }</Link>
         </span>
       </div>
+      {
+        user
+          ? <div className="nav-item right">
+            <a href={`https://github.com/${user.username}`} title="Go to your Github profile">
+              <span style={{ display: 'flex' }}>
+                <img className="navbar-avatar" src={user._json[0].avatarUrlSmall} alt="avatar" />
+                { user.displayName }
+              </span>
+            </a>
+          </div>
+          : null
+        }
     </nav>
   );
 };
@@ -34,7 +46,8 @@ const mapStateToProps = state => {
   return {
     currentRoom: state.reducer.get('currentRoom'),
     currentRoute: state.routing.locationBeforeTransitions.pathname,
-    sideVisible: state.reducer.get('sideVisible')
+    sideVisible: state.reducer.get('sideVisible'),
+    user: state.reducer.get('user')
   };
 };
 

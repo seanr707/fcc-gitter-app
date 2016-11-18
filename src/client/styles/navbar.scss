@@ -16,6 +16,14 @@
   margin: 0 auto;
 }
 
+.navbar-avatar {
+  $size: 24px;
+  height: $size;
+  width: $size;
+  margin: 0 10px;
+  border-radius: 2px;
+}
+
 .nav-title {
   font-weight: bold;
   cursor: pointer;
