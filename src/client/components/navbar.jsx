@@ -6,7 +6,7 @@ import { actions } from '../actions';
 
 const Navbar = ({ dispatch, currentRoom, currentRoute, sideVisible, user }) => {
   const titleText = currentRoute === '/' || !currentRoom
-    ? 'FreeCodeCamp Gitter Client'
+    ? 'FCC Gitter Client'
     : currentRoom.title;
 
   /* May experiment with multiple colors later

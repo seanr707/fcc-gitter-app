@@ -10,14 +10,17 @@
   bottom: 0;
   z-index: 3;
 
-  width: 200px;
+  width: 250px;
   padding: 60px 10px;
 
   background: #4f4f4f;
   color: #eeeeee;
   box-shadow: 1px 0 2px rgba(0, 0, 0, 0.3);
 
-  transform: translateX(-200px);
+  // In case too many rooms for height
+  overflow: auto;
+
+  transform: translateX(-250px);
   transition: transform 1s ease;
 
   &.expanded {
@@ -26,7 +29,7 @@
 }
 
 .sidebar-item {
-  padding: 5px 20px;
+  padding: 10px 20px;
   border-radius: 2px;
   transition: all 0.2s ease;
 
