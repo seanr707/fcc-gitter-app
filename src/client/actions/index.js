@@ -113,5 +113,13 @@ export const thunkActions = {
         err => console.error(err)
       );
     };
+  },
+  // Allow user to see loading symbol while we fetch new data from API
+  switchRoom: (room) => {
+    return dispatch => {
+      dispatch(actions.updateRoom(room));
+      dispatch(actions.updateMessages(null));
+      dispatch(thunkActions.fetchAllMessages());
+    };
   }
 };

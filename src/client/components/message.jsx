@@ -79,7 +79,7 @@ const Message = ({ message, appendInput, user, notified, dispatch }) => {
           className="message-author-container"
           onClick={click}
         >
-          <span className="message-author">
+          <span className="message-author" title="Click to add username to text area">
             { `${message.fromUser.displayName} (@${message.fromUser.username})` }
           </span>
         </div>

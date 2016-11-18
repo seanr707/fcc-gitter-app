@@ -2,16 +2,25 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
-const Navbar = ({ dispatch, currentRoom, currentRoute }) => {
+import { actions } from '../actions';
+
+const Navbar = ({ dispatch, currentRoom, currentRoute, sideVisible }) => {
   const titleText = currentRoute === '/' || !currentRoom
     ? 'FreeCodeCamp Gitter Client'
     : currentRoom.title;
 
-  const style = currentRoute !== '/'
-    ? { background: '#4f4f54' } : null;
+  /* May experiment with multiple colors later
+  const navStyle = currentRoute !== '/'
+    ? { background: '#4f4f84' } : null;
+  */
+
+  const menuStyle = sideVisible ? { transform: 'rotate(90deg)' } : null;
 
   return (
-    <nav className="navbar navbar-default" style={style}>
+    <nav className="navbar navbar-default">
+      <div style={menuStyle} className="nav-item sidebar-toggle" onClick={() => dispatch(actions.toggleSide())}>
+        ☰
+      </div>
       <div className="nav-item left">
         <span>
           <Link to="/">{ titleText }</Link>
@@ -24,7 +33,8 @@ const Navbar = ({ dispatch, currentRoom, currentRoute }) => {
 const mapStateToProps = state => {
   return {
     currentRoom: state.reducer.get('currentRoom'),
-    currentRoute: state.routing.locationBeforeTransitions.pathname
+    currentRoute: state.routing.locationBeforeTransitions.pathname,
+    sideVisible: state.reducer.get('sideVisible')
   };
 };
 

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { thunkActions } from '../actions';
-import { Navbar } from './index';
+import { Navbar, Sidebar } from './index';
 
 class Main extends React.Component {
   constructor(props) {
@@ -21,6 +21,7 @@ class Main extends React.Component {
     return (
       <div id="root">
         <Navbar />
+        <Sidebar />
         {/* Margin for Navbar space */}
         <div style={{ marginTop: '50px' }}>
           { this.props.children }
