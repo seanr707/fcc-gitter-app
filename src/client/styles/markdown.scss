@@ -29,10 +29,12 @@ $mainColor: #ffcc13;
         // bold font for mentions and hashtags
         // font-weight: bold;
         cursor: default;
-        color: #ffff00;
+        // color: #ffff00;
+        color: #efefef;
+        text-decoration: underline;
 
         &:hover {
-          text-decoration: none;
+          color: inherit;
         }
       }
   }
