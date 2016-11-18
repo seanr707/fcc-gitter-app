@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 
 import { actions, thunkActions } from '../actions';
 import ROOMS from '../rooms';
-import { Input, Loading, Message } from './index';
+import { Input, Loading, Login, Message } from './index';
 
 console.log(Loading);
 
@@ -44,7 +44,7 @@ class Room extends React.Component {
 
   render() {
     if (!this.props.token) {
-      return <div className="container"> Please login </div>;
+      return <Login />;
     }
 
     if (!this.props.messages) return <Loading />;
