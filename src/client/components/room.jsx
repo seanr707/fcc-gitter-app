@@ -6,8 +6,6 @@ import { actions, thunkActions } from '../actions';
 import ROOMS from '../rooms';
 import { Input, Loading, Login, Message } from './index';
 
-console.log(Loading);
-
 class Room extends React.Component {
   constructor(props) {
     super(props);
@@ -33,9 +31,6 @@ class Room extends React.Component {
     } else if (Notification.permission !== 'granted') {
       Notification.requestPermission();
     }
-
-    // Scroll to bottom where newest text is after it has loaded
-    setTimeout(() => window.scrollTo(0, 2000), 2000);
   }
 
   componentWillUnmount() {

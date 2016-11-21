@@ -96,7 +96,7 @@ export const thunkActions = {
       const roomId = reducer.get('currentRoom').id;
       const userToken = reducer.get('token');
 
-      axios.get(`https://api.gitter.im/v1/rooms/${roomId}/chatMessages?access_token=${userToken}&limit=10`).then(
+      axios.get(`https://api.gitter.im/v1/rooms/${roomId}/chatMessages?access_token=${userToken}&limit=20`).then(
         res => dispatch(actions.updateMessages(res.data)),
         err => console.error(err)
       );
@@ -120,6 +120,9 @@ export const thunkActions = {
       dispatch(actions.updateRoom(room));
       dispatch(actions.updateMessages(null));
       dispatch(thunkActions.fetchAllMessages());
+
+      // Scroll to bottom where newest text is after it has loaded upon switching rooms
+      setTimeout(() => scrollTo(0, 10000), 1500);
     };
   }
 };

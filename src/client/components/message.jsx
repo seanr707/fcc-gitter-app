@@ -45,14 +45,10 @@ const notify = (author, message) => {
   if (Notification.permission !== 'granted') {
     Notification.requestPermission();
   } else {
-    const notification = new Notification(`New mention from @${author.username}`, {
+    return new Notification(`New mention from @${author.username}`, {
       icon: author.avatarUrlMedium,
       body: message.text
     });
-
-    notification.onclick = function () {
-      window.open('http://stackoverflow.com/a/13328397/1269037');
-    };
   }
 };
 
@@ -72,7 +68,7 @@ const Message = ({ message, appendInput, user, notified, dispatch }) => {
   if (!notified.find(id => id === message.id)) {
     // Check if we need to notifiy user of new message
     // Timeout used to prevent to many unnecessary re-renders
-    setTimeout(() => checkNotify(user, message, actionBind.storeNotifcation), 500);
+    checkNotify(user, message, actionBind.storeNotifcation);
   }
 
   return (
