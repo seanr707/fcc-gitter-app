@@ -13,7 +13,7 @@
     "build": "npm run build-front && npm run build-server",
     "build-dev": "npm run build-front-dev && npm run build-server",
     "deploy": "git checkout heroku && git merge --no-commit --no-ff dev && npm run build && git commit -a -m \"New build for Heroku\" && git push heroku heroku:master && git checkout dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "exit 0"
   },
   "keywords": [
     "freecodecamp",
