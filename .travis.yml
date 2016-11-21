@@ -1,12 +1,12 @@
 language: node_js
 node_js:
-- 6.1.x
+  - 6.1.x
 cache:
   directories:
   - node_modules
 install:
-- npm install
-- npm run build
+  - npm install
+  - npm run build
 deploy:
   provider: heroku
   app: fccgitterapp
