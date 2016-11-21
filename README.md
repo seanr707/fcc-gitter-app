@@ -1,7 +1,7 @@
 # Gitter App for FreeCodeCamp
 *Authored by Sean R. [(@seanr707)](https://github.com/seanr707)*
 
-*Link to build: [gitterapp.herokuapp.com](https://gitterapp.herokuapp.com/)*
+*Link to build: [fccgitterapp.herokuapp.com](https://fccgitterapp.herokuapp.com/)*
 
 ### About project
 
