@@ -20,30 +20,17 @@ const keyUp = (sendMessage, updateInput) => node => {
 const submit = (sendMessage, updateInput, input) => e => {
   if (e) e.preventDefault();
 
-  console.log(input);
-
   sendMessage({ text: input });
   updateInput('');
 };
 
 import { actions, thunkActions } from '../actions';
 
-const Input = ({ dispatch, token, inputField, inputNode }) => {
+const Input = ({ dispatch, token, inputField }) => {
   const actionBind = bindActionCreators(actions, dispatch);
   const thunkBind = bindActionCreators(thunkActions, dispatch);
 
   const updateInput = e => actionBind.updateInput(e.target.value);
-
-  /*
-  if (inputNode) {
-    inputNode.onkeyup = e => {
-      if (e.keyCode === 13 && e.ctrlKey) {
-        // start your submit function
-        console.log('It worked!');
-      }
-    };
-  }
-  */
 
   return (
     <div id="input">
@@ -74,8 +61,7 @@ const Input = ({ dispatch, token, inputField, inputNode }) => {
 const mapStateToProps = state => {
   return {
     token: state.reducer.get('token'),
-    inputField: state.reducer.get('inputField'),
-    inputNode: state.reducer.get('inputNode')
+    inputField: state.reducer.get('inputField')
   };
 };
 
