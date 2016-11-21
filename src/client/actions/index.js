@@ -96,7 +96,7 @@ export const thunkActions = {
       const roomId = reducer.get('currentRoom').id;
       const userToken = reducer.get('token');
 
-      axios.get(`https://api.gitter.im/v1/rooms/${roomId}/chatMessages?access_token=${userToken}&limit=10`).then(
+      axios.get(`https://api.gitter.im/v1/rooms/${roomId}/chatMessages?access_token=${userToken}&limit=50`).then(
         res => dispatch(actions.updateMessages(res.data)),
         err => console.error(err)
       );
